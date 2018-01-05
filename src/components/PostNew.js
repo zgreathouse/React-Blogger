@@ -49,7 +49,9 @@ class PostNew extends Component {
   }
 
   onSubmit(values) {
-    this.props.createPost(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
@@ -94,7 +96,8 @@ const validate = values => {
 
 export default reduxForm({
   validate,
-  form: 'PostsNewForm'
+  form: 'PostsNewForm',
+
 })(
   connect(null, { createPost })(PostNew)
 );
