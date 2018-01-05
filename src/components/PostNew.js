@@ -13,6 +13,8 @@ const formFields = [
 
 class PostNew extends Component {
   renderField(field) {
+    const { touched, error } = field.meta;
+
     return (
       <div className="form-group">
         <label>{field.label}</label>
@@ -21,6 +23,7 @@ class PostNew extends Component {
           type="text"
           {...field.input}
         />
+        {touched && error}
       </div>
     )
   }
@@ -39,10 +42,24 @@ class PostNew extends Component {
     })
   }
 
+  onSubmit(values) {
+    console.log(values);
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         {this.renderFields()}
+        <button
+          type="submit"
+          className="btn btn-primary"
+          text="submit"
+          style={{"backgroundColor": "red", "borderColor": "darkRed"}}
+        >
+          Submit
+        </button>
       </form>
     )
   }
@@ -59,7 +76,7 @@ const validate = values => {
   if (!values.categories) {
     errors.categories = "Please enter at least one category!";
   }
-  
+
   if (!values.content) {
     errors.content = "Please enter some content!";
   }
