@@ -10,6 +10,7 @@ import reducers from './reducers';
 
 //components
 import PostsIndex from './components/PostsIndex';
+import PostNew from './components/PostNew';
 
 //create store object (redux)
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -19,6 +20,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Route path="/" component={PostsIndex} />
+        <Route path="/posts/new" component={PostsNew} />
       </div>
     </BrowserRouter>
   </Provider>

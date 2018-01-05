@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // action type constants
-export const FETCH_USERS = "FETCH_USERS";
-export const FETCH_USER = "FETCH_USER";
-export const CREATE_USER = "CREATE_USER";
-export const DELETE_USER = "DELETE_USER";
+export const FETCH_POSTS = "FETCH_POSTS";
+export const FETCH_POST = "FETCH_POST";
+export const CREATE_POST = "CREATE_POST";
+export const DELETE_POST = "DELETE_POST";
 
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "?key=reactblogger"
