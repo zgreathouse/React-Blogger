@@ -10,6 +10,7 @@ import reducers from './reducers';
 //components
 import PostsIndex from './components/PostsIndex';
 
+//create store object (redux)
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
@@ -21,5 +22,3 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>
   , document.querySelector('.container'));
-
-  //<App />
