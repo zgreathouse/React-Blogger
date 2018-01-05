@@ -26,7 +26,6 @@ class PostsIndex extends Component {
           <Link
             to="/posts/new"
             className="btn btn-primary"
-            style={{"backgroundColor": "red", "borderColor": "darkRed"}}
           >
             Add a Post!
           </Link>

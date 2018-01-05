@@ -1,9 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-
-//components
-
+import { Link } from 'react-router-dom';
 
 const formFields = [
   {label: 'Title', name: 'title'},
@@ -14,16 +12,22 @@ const formFields = [
 class PostNew extends Component {
   renderField(field) {
     const { touched, error } = field.meta;
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`
 
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label}</label>
         <input
           className="form-control"
           type="text"
           {...field.input}
         />
-        {touched && error}
+        <div
+          className="text-help"
+          style={{"fontStyle": "italic"}}
+        >
+          {touched && error}
+        </div>
       </div>
     )
   }
@@ -56,10 +60,12 @@ class PostNew extends Component {
           type="submit"
           className="btn btn-primary"
           text="submit"
-          style={{"backgroundColor": "red", "borderColor": "darkRed"}}
         >
           Submit
         </button>
+        <Link to="/" className="btn btn-danger">
+          Cancel
+        </Link>
       </form>
     )
   }
