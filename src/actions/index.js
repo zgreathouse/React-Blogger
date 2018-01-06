@@ -9,6 +9,14 @@ export const DELETE_POST = "DELETE_POST";
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "?key=reactblogger"
 
+/*
+                            Routes
+http://reduxblog.herokuapp.com/api/posts         *GET posts
+http://reduxblog.herokuapp.com/api/posts/:id     *GET (single) post
+http://reduxblog.herokuapp.com/api/posts         *POST (create) post
+http://reduxblog.herokuapp.com/api/posts/:id     *DELETE post
+
+*/
 
 //action creators
 export const fetchPosts = () => {
@@ -47,13 +55,3 @@ export const deletePost = (id, callback) => {
     payload: id
   };
 }
-
-/*
-
-                            Routes
-http://reduxblog.herokuapp.com/api/posts         *GET posts
-http://reduxblog.herokuapp.com/api/posts/:id     *GET post
-http://reduxblog.herokuapp.com/api/posts         *POST post
-http://reduxblog.herokuapp.com/api/posts/:id     *DELETE post
-
-*/
