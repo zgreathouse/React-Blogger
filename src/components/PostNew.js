@@ -5,11 +5,26 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { createPost } from '../actions';
 
-const formFields = [
-  {label: 'Title', name: 'title'},
-  {label: 'Categories', name: 'categories'},
-  {label: 'Post Content', name: 'content'}
-];
+const FIELDS = {
+  title: {
+    label: 'Title',
+    name: 'title',
+    type: 'input',
+    errorMessage: 'a title'
+  },
+  categories: {
+    label: 'Categories',
+    name: 'categories',
+    type: 'input',
+    errorMessage: 'a category'
+  },
+  content: {
+    label: 'Post Content',
+    name: 'content',
+    type: 'textarea',
+    errorMessage: 'some content'
+  }
+};
 
 class PostNew extends Component {
   renderField(field) {
@@ -35,12 +50,12 @@ class PostNew extends Component {
   }
 
   renderFields() {
-    return _.map(formFields, ({ label, name }) => {
+    return _.map(FIELDS, ({ label, name, type }) => {
       return (
         <Field
           key={name}
           component={this.renderField}
-          type="text"
+          type={type}
           label={label}
           name={name}
         />
@@ -79,24 +94,19 @@ const validate = values => {
   const errors = {};
 
   //validate inputs
-  if (!values.title) {
-    errors.title = "Please enter a title!";
-  }
-
-  if (!values.categories) {
-    errors.categories = "Please enter at least one category!";
-  }
-
-  if (!values.content) {
-    errors.content = "Please enter some content!";
-  }
+  _.each(FIELDS, ({name, errorMessage}) => {
+    if (!values[name]) {
+      errors[name] = `Please enter ${errorMessage}.`;
+    }
+  });
 
   return errors;
 }
 
 export default reduxForm({
-  validate,
+  fields: _.keys(FIELDS),
   form: 'PostsNewForm',
+  validate,
 
 })(
   connect(null, { createPost })(PostNew)
