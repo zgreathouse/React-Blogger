@@ -32,7 +32,9 @@ class PostNew extends Component {
     const className = `form-group ${touched && error ? 'has-danger' : ''}`
 
     return (
-      <div className={className}>
+      <div
+        className={className}
+      >
         <label>{field.label}</label>
         <input
           className="form-control"
@@ -73,7 +75,10 @@ class PostNew extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form
+        onSubmit={handleSubmit(this.onSubmit.bind(this))}
+        style={{marginTop: "50px"}}
+      >
         {this.renderFields()}
         <button
           type="submit"

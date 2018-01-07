@@ -28,12 +28,13 @@ class PostsIndex extends Component {
           <Link
             to="/posts/new"
             className="btn btn-primary"
+            style={{marginTop: "15px"}}
           >
             Add a Post!
           </Link>
         </div>
         <h3>Posts</h3>
-        <ul className="list-group">
+        <ul className="list-group" style={{marginTop: "20px"}}>
           {this.renderPosts()}
         </ul>
       </div>

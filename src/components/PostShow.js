@@ -27,16 +27,28 @@ class PostShow extends Component {
 
     return (
       <div>
-        <Link to="/" className="btn btn-primary">Back to Index</Link>
+        <Link
+          to="/"
+          className="btn btn-primary"
+          style={{marginTop: "20px"}}
+        >
+          Back to Index
+        </Link>
         <button
           className="btn btn-danger pull-xs-right"
           onClick={this.onDeleteClick.bind(this)}
+          style={{marginTop: "20px"}}
         >
           Delete Post
         </button>
-        <h3>{post.title}</h3>
-        <h6>Categories: {post.categories}</h6>
-        <p>{post.content}</p>
+        <h3 style={{marginTop: "30px"}}>{post.title}</h3>
+        <h6 style={{marginTop: "20px"}}>Categories: {post.categories}</h6>
+        <p style={{
+          marginTop: "20px",
+          padding: "15px",
+          border: "solid thin black",
+          height: "200px"
+        }}>{post.content}</p>
       </div>
     )
   }
