@@ -1,3 +1,4 @@
+//This component is an index of all the posts
 import _ from 'lodash';
 import React, { Component } from 'react'
 import { connect } from 'react-redux';

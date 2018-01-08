@@ -1,3 +1,4 @@
+//This component is the form for creating a new post
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
