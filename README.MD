@@ -11,3 +11,5 @@ This app pings an external API created by the course instructor and allows a use
 - Lodash
 - Redux-Promise
 - Redux-Form
+
+The initial boilerplate for React and Redux was a forked repository from here: https://github.com/StephenGrider/ReduxSimpleStarter
